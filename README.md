@@ -1,5 +1,4 @@
-# otb
-## On the Beach test
+# otb - On the Beach test
 
 A little bit of code to demonstrate my abilities.
 
@@ -12,9 +11,10 @@ This will create a folder called otb.
 cd into this folder
 
 `cd otb`
+
 To run the app, open up the command prompt and type
 
-'gulp serve'
+`gulp serve`
 
 This will run the uncompressed files
 

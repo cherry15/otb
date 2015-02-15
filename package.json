@@ -1,6 +1,7 @@
 {
   "name": "OTB",
   "version": "0.1.0",
+  "repository": "https://github.com/cherry15/otb",
   "devDependencies": {
     "bower-files": "^3.4.2",
     "del": "^1.1.1",

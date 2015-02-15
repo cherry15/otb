@@ -1,0 +1,40 @@
+// breakpoints
+$breakpoint-very-small: "only screen and (min-width: 320px)";
+$breakpoint-small: "only screen and (min-width: 480px)";
+$breakpoint-medium: "only screen and (min-width: 768px)";
+$breakpoint-large: "only screen and (min-width: 1224px)";
+
+$font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
+$beach_body: 1.3rem;
+$beach_heading: 1.8rem;
+$beach_sub_heading: 1.3rem;
+$beach_price: 1.8rem;
+$beach_fg: #19388a;
+
+$max_ratings: 5;
+$rating_height: 28;
+$rating_width: 16;
+$offset: 3;
+$px:px;
+$beach_bg: url(../images/beach/background.jpg) repeat-x left top #FFFFE7;
+$beach_rating_bg: url(../images/beach/stars.png);
+$beach_item_max_width: 460px;
+
+$beach_sort_btn_bg: #b2ebf7;
+$beach_sort_btn_fg: #00AEE1;
+
+$beach_sort_btn_bg_hover: #00AEE1;
+$beach_sort_btn_fg_hover: #fff;
+
+$beach_sort_btn_fs: 1.4rem;
+
+$beach_book_btn_bg: #19388a;
+$beach_book_btn_fg: #fff;
+
+$beach_book_btn_bg_hover: #19388a;
+$beach_book_btn_fg_hover: #fff;
+
+$beach_book_btn_fs: 1.8rem;
+
+

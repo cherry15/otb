@@ -1,0 +1,44 @@
+<div class="beach" ng-controller="BeachCtrl">
+  <div class="row sort">
+    <button type="button" ng-class="(choice === 'hotel_name') ? 'active' : ''" ng-click="reverse = !reverse;
+          order('hotel_name', reverse)">
+      sort <span>alphabetically</span>
+    </button>
+    <button type="button" ng-class="(choice === 'price') ? 'active' : ''" ng-click="reverse = !reverse;
+          order('price', reverse)">
+      sort by <span>price</span>
+    </button>
+    <button type="button" ng-class="(choice === 'rating') ? 'active' : ''" ng-click="reverse = !reverse;
+          order('rating', reverse)">
+      sort by <span>star rating</span>
+    </button>
+  </div>
+
+  <section ng-repeat="beach in beaches | orderBy:choice:reverse">
+    <div class="row details-and-price">
+      <div class="holiday-details">
+        <h2>{{beach.hotel_name}}&nbsp;<span class="rating-{{beach.rating}}"></span></h2>
+        <h3>{{beach.resort}}, {{beach.country}}</h3>
+      </div>
+      <div class="price">
+        holiday price
+        <p>&pound;{{formatPrice(beach.price)}}</p>
+      </div>
+    </div>
+    <img ng-src="{{beach.image}}" alt="{{beach.hotel_name}}" >
+    <div class="flight-details" ng-class="{active:beach.selected}">
+      <div class="row">
+        <p class="passengers">{{beach.departure_date}}&nbsp;<span>for&nbsp;</span>{{beach.days}}&nbsp;days&nbsp;
+          <span>from</span>&nbsp;{{beach.departure_airport}},&nbsp;{{beach.passengers}}</p>
+        <a class="open-close" href="" title="More information" ng-click="select(beach, beaches)">
+          <span class="right-arrow">&#707;</span>
+          <span class="down-arrow">&#709;</span>
+        </a>
+      </div>
+      <div class="description">
+        <p>{{beach.description}}</p>
+        <div class="book-now"><button type="button">Book now</button></div>
+      </div>
+    </div>
+  </section>
+</div>

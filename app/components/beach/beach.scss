@@ -1,0 +1,222 @@
+/*
+* Create stars for ratings
+*/
+@for $i from 1 through $max_ratings {
+  .rating-#{$i} { 
+    background: $beach_rating_bg 0 ((-$rating_height * ($i - 1) - $offset) + $px);
+    width: ($rating_width * $i)+ $px;
+    height: $rating_height + $px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1rem;
+  }
+}
+.beach-container {
+  background: $beach_bg;
+  width: 100%;
+  height: 100%;
+  font-size: $beach_body;
+
+  h2 {
+    font-size: $beach_heading;
+  }
+  h3 {
+    font-size: $beach_sub_heading;
+  }
+  .price p {
+    font-size: $beach_price;
+  }
+  h2, 
+  h3, 
+  .price p {
+    color: $beach_fg;
+  }
+}
+.beach {
+  position: relative;
+  margin: 0 auto;
+  max-width: $beach_item_max_width;
+  text-align: left;
+  color: red;
+  p,
+  h2,
+  h3,
+  span, 
+  a, 
+  .description p {
+    margin: 0;
+  }
+  .holiday-details,
+  .price, 
+  p.passengers, 
+  a.open-close, 
+  .description p {
+    padding: .4rem .8rem; 
+  }
+  .row {
+    width: 100%;
+    display: table;
+  }
+  .sort {
+    text-align: center;
+    padding: 0;
+    button, 
+    span {
+      font-size: $beach_sort_btn_fs;
+      color: $beach_sort_btn_fg;
+    }
+    button {
+      background: $beach_sort_btn_bg;
+      border-radius: 0;
+      font-weight: normal;
+      margin-right: 0;
+      width: 100%;
+      height: 5.4rem;
+      border-bottom: .1rem #25c1ed solid;
+      span {
+        font-weight: bold;
+      }
+    }
+    button:last-child {
+      margin-right: 0;
+      border-bottom: none;
+    }
+    button:hover, 
+    button.active,
+    button:hover span, 
+    button.active span {
+      background: $beach_sort_btn_bg_hover;
+      color: $beach_sort_btn_fg_hover;
+    }
+  }
+  section:first-child {
+    padding-top: 1.8rem;
+  }
+  section { 
+    margin-bottom: 2rem;
+    .description {
+      background: #fff;
+      border: .1rem #ccc solid;
+      border-top: none;
+      margin: 0;
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      @include transition(max-height, 0.4s);
+      p {
+        color: #00AEE1;
+      }
+    }
+
+    p.passengers, 
+    a.open-close, 
+    .holiday-details, 
+    .price, 
+    .description p {
+      display: table-cell;
+      vertical-align: middle;
+    }
+    .flight-details.active a.open-close .right-arrow {
+      display: none;
+    }
+    .flight-details.active a.open-close .down-arrow {
+      display: block;
+    }
+    .flight-details.active .description {
+      max-height: 20rem;
+    }
+    .flight-details {
+      background: #00aee1;
+      .passengers, 
+      .down-arrow, 
+      .right-arrow {
+        color: #fff;
+      }
+      p.passengers, 
+      a.open-close {
+        width: auto;
+      }
+      a.open-close {
+        text-align: right;
+        text-decoration: none;
+        .down-arrow, 
+        .right-arrow {
+          font-size: 2.4rem;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .down-arrow {
+          display: none;
+        }
+        .right-arrow {
+          display: block;
+        }
+      }
+      .book-now {
+        text-align: center;
+        padding-bottom: 1.6rem;
+        button {
+          color: $beach_book_btn_fg;
+          background: $beach_book_btn_bg;
+          text-transform: uppercase;
+          font-size: $beach_book_btn_fs;
+          border-radius: .4rem;
+          padding: 1rem 2rem;
+          font-weight: bold;
+        }
+        button:hover {
+          background: #4468c4;
+        }
+      }
+    }
+    .details-and-price {
+      position: relative;
+      left: 0;
+      h2 {
+        font-weight: bold;
+        margin-top: 0;
+      }
+      .holiday-details {
+        width: 75%;
+        background: #b2ebf7;
+        background-color:rgba(177,234,246,0.8);
+      }
+      .price {
+        width: 25%;
+        background: #f3d430;
+        //background-color:rgba(243,212,48,0.8);
+        border-left: .1rem #19388a solid;
+        text-align: right;
+        p {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+@media #{$breakpoint-small} {
+  .beach {
+    section {
+      .details-and-price {
+        position: absolute;
+      }
+    }
+    .holiday-details,
+    .price, 
+    p.passengers, 
+    a.open-close, 
+    .description p {
+      padding: .6rem 1rem; 
+    }
+
+    .sort {
+      padding: 1.8rem 0;
+      button {
+        margin-right: 1.7rem;
+        border-bottom: none;
+        width: 14rem;
+      }
+    }
+  }
+}
+

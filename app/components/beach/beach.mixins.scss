@@ -1,0 +1,19 @@
+@mixin transition($property, $speed:0.5s, $easing:linear) {
+  transition: $property $speed $easing;
+  -webkit-transition: $property $speed $easing;
+  -moz-transition: $property $speed $easing;
+  -o-transition: $property $speed $easing;
+}
+
+@mixin transitionNone() {
+  -moz-transition: none;
+  -webkit-transition: none;
+  -o-transition: color 0 ease-in;
+  transition: none;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}

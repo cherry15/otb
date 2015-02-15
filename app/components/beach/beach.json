@@ -1,0 +1,39 @@
+[{
+    "hotel_name": "Costa Adeje Gran Hotel",
+    "resort": "Costa Adeje",
+    "country": "Tenerife",
+    "rating": 5,
+    "price": 1136.50,
+    "departure_date": "03:07:2014",
+    "departure_airport": "East Midlands",
+    "days": 7,
+    "passengers": "2 Adults, 2 children & 1 infant",
+    "image": "images/beach/image_01.jpg",
+    "description": "Erat sem cras mauris. Eu proin duis aenean ultricies, volutpat auctor lacus quis volutpat. Tincidunt vestibulum,amet a sit consectetuer nullam. Qui turpis justo condimentum exercitationem nunc, facilisis sit aliquam nullam gravida."
+  },
+  {
+    "hotel_name": "Aguamarina Golf Hotel and Appartments",
+    "resort": "Costa Adeje",
+    "country": "Tenerife",
+    "rating": 5,
+    "price": 499.99,
+    "departure_date": "03:07:2014",
+    "departure_airport": "East Midlands",
+    "days": 7,
+    "passengers": "2 Adults & 2 children",
+    "image": "images/beach/image_02.jpg",
+    "description": "Erat sem cras mauris. Eu proin duis aenean ultricies, volutpat auctor lacus quis volutpat. Tincidunt vestibulum,amet a sit consectetuer nullam. Qui turpis justo condimentum exercitationem nunc, facilisis sit aliquam nullam gravida."
+  },
+  {
+    "hotel_name": "Laguna Park II",
+    "resort": "Costa Adeje",
+    "country": "Tenerife",
+    "rating": 3,
+    "price": 696.80,
+    "departure_date": "27:05:2014",
+    "departure_airport": "Liverpool",
+    "days": 7,
+    "passengers": "2 Adults & 1 child",
+    "image": "images/beach/image_03.jpg",
+    "description": "Erat sem cras mauris. Eu proin duis aenean ultricies, volutpat auctor lacus quis volutpat. Tincidunt vestibulum,amet a sit consectetuer nullam. Qui turpis justo condimentum exercitationem nunc, facilisis sit aliquam nullam gravida."
+  }]

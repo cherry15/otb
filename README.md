@@ -30,7 +30,7 @@ To build the app type
 
 To serve the distribution version type
 
-`serve-dist`
+`gulp serve-dist`
 
 The files for the module are in otb\app\components\beach
 

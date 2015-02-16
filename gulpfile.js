@@ -7,12 +7,26 @@ var gulp = require('gulp'),
   bower_files = require('bower-files')(),
   inject = require('gulp-inject'),
   del = require('del'),
-  karma = require('gulp-karma'),
   jasmine = require('gulp-jasmine');
   // source and destination folders
   src = 'app/',
   dest = 'dist/';
 
+var karma = require('karma').server;
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
+/**
+ * Minimise and compress bower files
+ */
 gulp.task('bower', function () {
     gulp.src(bower_files.ext('js').files)
       .pipe(concat('bower.min.js'))
@@ -20,6 +34,21 @@ gulp.task('bower', function () {
       .pipe(gulp.dest(dest));
 });
 
+/**
+ * Run server
+ */
+/*gulp.task('runServer', function (env) {
+    gulp.src(env)
+      .pipe(server({
+          livereload: true,
+          log: 'debug',
+          open: true
+      }));
+});*/
+
+/**
+ * Run distribution server
+ */
 gulp.task('distServer', function () {
     gulp.src(dest)
       .pipe(server({
@@ -29,7 +58,10 @@ gulp.task('distServer', function () {
       }));
 });
 
-gulp.task('localServer', function () {
+/**
+ * Run development server
+ */
+gulp.task('developmentServer', function () {
     gulp.src(src)
       .pipe(server({
           livereload: true,
@@ -37,6 +69,7 @@ gulp.task('localServer', function () {
           open: true
       }));
 });
+
 
 gulp.task('sass-local', function () {
     return sass(src + 'app.scss', {style: 'expanded'})
@@ -77,4 +110,4 @@ gulp.task('sass', function () {
 
 gulp.task('build-dist', ['scripts', 'sass', 'bower']);
 gulp.task('serve-dist', ['distServer']);
-gulp.task('serve', ['sass-local', 'localServer']);
+gulp.task('serve', ['sass-local', 'developmentServer']);

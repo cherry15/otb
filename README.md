@@ -4,9 +4,15 @@ A little bit of code to demonstrate my abilities.
 
 ### Installation
 
-Extract the files anywhere, eg. C:\Sites
+Open up the command prompt and cd into the parent folder of where you would like to install the files 
 
-This will create a folder called otb.
+eg. `cd C:\Sites`
+
+Then clone the repo
+
+`git clone https://github.com/cherry15/otb.git`
+
+This will create a folder called otb in the current folder with all the necessary files.
 
 cd into this folder
 

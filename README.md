@@ -40,6 +40,7 @@ The files for the module are in otb\app\components\beach
 
 ### Testing
 
-Tests are present but won't run in this environment as this is my first attempt at writing a gulpfile
-The tests have been run in a different setup which was part of a yeoman generator.
+To run the tests.
+
+`gulp test`
 

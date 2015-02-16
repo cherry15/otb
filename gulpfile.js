@@ -50,6 +50,7 @@ gulp.task('scripts', function () {
         src + 'app.js',
         src + 'components/**/*.js',
         src + '**/*.js',
+        '!' + src + 'bower_components/**/*.js',
         '!' + src + 'components/**/*.spec.js',
         '!' + src + '**/*.spec.js'
     ])

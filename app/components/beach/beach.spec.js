@@ -3,7 +3,7 @@
 describe('BeachCtrl', function () {
 
     // load dependencies
-    beforeEach(module('beachApp'));
+    beforeEach(module('otbApp'));
     beforeEach(module('beachService'));
     beforeEach(module('beachModule'));
 

@@ -14,9 +14,13 @@ Then clone the repo
 
 This will create a folder called otb in the current folder with all the necessary files.
 
-cd into this folder
+or you can add a folder name to the end of the git command eg to place all the files into C:\Sites\my_site
 
-`cd otb`
+`git clone https://github.com/cherry15/otb.git my_site`
+
+cd into your newly created folder
+
+`cd my_site`
 
 To run the app, open up the command prompt and type
 

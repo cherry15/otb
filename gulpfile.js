@@ -7,25 +7,44 @@ var gulp = require('gulp'),
   bower_files = require('bower-files')(),
   inject = require('gulp-inject'),
   del = require('del'),
-  jasmine = require('gulp-jasmine');
-  // source and destination folders
+  jasmine = require('gulp-jasmine'),
+  karma = require('karma').server,
   src = 'app/',
-  dest = 'dist/';
+  dest = 'dist/',
+  cssDestFolder = src,
+  cssStyle = 'compressed',
+  serverSrc = dest;
 
-var karma = require('karma').server;
+/**
+ * Set distribution environment
+ */
+gulp.task('set-env-dist', function () {
+    cssDestFolder = dest;
+    cssStyle = 'compressed';
+    serverSrc = dest;
+});
+
+/**
+ * Set development environment
+ */
+gulp.task('set-env-dev', function () {
+    cssDestFolder = src;
+    cssStyle = 'expanded';
+    serverSrc = src;
+});
 
 /**
  * Run test once and exit
  */
 gulp.task('test', function (done) {
-  karma.start({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
-  }, done);
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done);
 });
 
 /**
- * Minimise and compress bower files
+ * Concatenate and compress bower
  */
 gulp.task('bower', function () {
     gulp.src(bower_files.ext('js').files)
@@ -37,20 +56,8 @@ gulp.task('bower', function () {
 /**
  * Run server
  */
-/*gulp.task('runServer', function (env) {
-    gulp.src(env)
-      .pipe(server({
-          livereload: true,
-          log: 'debug',
-          open: true
-      }));
-});*/
-
-/**
- * Run distribution server
- */
-gulp.task('distServer', function () {
-    gulp.src(dest)
+gulp.task('webServer', function () {
+    gulp.src(serverSrc)
       .pipe(server({
           livereload: true,
           log: 'debug',
@@ -59,25 +66,16 @@ gulp.task('distServer', function () {
 });
 
 /**
- * Run development server
+ * Compress sass
  */
-gulp.task('developmentServer', function () {
-    gulp.src(src)
-      .pipe(server({
-          livereload: true,
-          log: 'debug',
-          open: true
-      }));
+gulp.task('sass', function () {
+    return sass(src + 'app.scss', {style: cssStyle})
+      .pipe(gulp.dest(cssDestFolder));
 });
 
-
-gulp.task('sass-local', function () {
-    return sass(src + 'app.scss', {style: 'expanded'})
-      .pipe(gulp.dest(src));
-});
-
-// Concatenate and compress JS Files
-// exclude any spec (test) files
+/**
+ * Concatenate and compress js
+ */
 gulp.task('scripts', function () {
     return gulp.src([
         src + 'app.js',
@@ -93,21 +91,15 @@ gulp.task('scripts', function () {
       .pipe(gulp.dest(dest));
 });
 
-//Concatenate and compress sass files
-gulp.task('sass', function () {
-    return sass(src + 'app.scss', {style: 'compressed'})
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(dest));
-});
 // Delete everything in destination folder
 /*gulp.task('clean', function (cb) {
-  del([
-    dest
-  ], cb);
-});*/
+ del([
+ dest
+ ], cb);
+ });*/
 // Copy all the files
 //gulp.task('copy', function () {return gulp.src([src + '**/*'], { base: src }).pipe(gulp.dest(dest));});
 
-gulp.task('build-dist', ['scripts', 'sass', 'bower']);
-gulp.task('serve-dist', ['distServer']);
-gulp.task('serve', ['sass-local', 'developmentServer']);
+gulp.task('build-dist', ['set-env-dist', 'scripts', 'sass', 'bower']);
+gulp.task('serve-dist', ['set-env-dist', 'webServer']);
+gulp.task('serve', ['set-env-dev', 'sass', 'webServer']);
